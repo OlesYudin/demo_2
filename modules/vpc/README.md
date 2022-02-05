@@ -8,12 +8,12 @@
 
 ### Структура файлов:
 
-- [`main.tf`](https://github.com/OlesYudin/Terraform/blob/main/Lesson_7-Network_Infrastructure/modules/vpc/main.tf "main.tf`") - создание VPC, Subnets (Private and Public), association to Subnets
-- [`alb.tf`](https://github.com/OlesYudin/Terraform/blob/main/Lesson_7-Network_Infrastructure/modules/vpc/alb.tf "alb.tf") - создание Application Load Balancer, для распределения трафика между EC2 instance
-- [`asg.tf`](https://github.com/OlesYudin/Terraform/blob/main/Lesson_7-Network_Infrastructure/modules/vpc/asg.tf "asg.tf") - создание ASG, для конфигурации EC2 instance и корректной работы NAT
-- [`variables.tf`](https://github.com/OlesYudin/Terraform/blob/main/Lesson_7-Network_Infrastructure/modules/vpc/variables.tf "variables.tf") - переменные для работы модуля VPC
-- [`data.tf`](https://github.com/OlesYudin/Terraform/blob/main/Lesson_7-Network_Infrastructure/modules/vpc/data.tf "data.tf") - динамических поиск ресурсов
-- [`outputs.tf`](https://github.com/OlesYudin/Terraform/blob/main/Lesson_7-Network_Infrastructure/modules/vpc/outputs.tf "outputs.tf") - выходные данные модуля VPC
+- [`main.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/main.tf "main.tf`") - создание VPC, Subnets (Private and Public), association to Subnets
+- [`alb.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/alb.tf "alb.tf") - создание Application Load Balancer, для распределения трафика между EC2 instance
+- [`asg.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/asg.tf "asg.tf") - создание ASG, для конфигурации EC2 instance и корректной работы NAT
+- [`variables.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/variables.tf "variables.tf") - переменные для работы модуля VPC
+- [`data.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/data.tf "data.tf") - динамических поиск ресурсов
+- [`outputs.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/outputs.tf "outputs.tf") - выходные данные модуля VPC
 
 ### Что необходимо создать:
 
@@ -33,7 +33,7 @@
 ### <div align="center">Схема сети</div>
 
 <p align="center">
-  <img src="https://github.com/OlesYudin/Terraform/blob/main/Lesson_7-Network_Infrastructure/images/Network%20scheme.png" alt="Scheme of Network in AWS"/>
+  <img src="https://github.com/OlesYudin/demo_2/blob/main/images/Network%20infrastructure.png" alt="Scheme of Network in AWS"/>
 </p>
 
 ### [1. Создание VPC](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc "1. Создание VPC")
