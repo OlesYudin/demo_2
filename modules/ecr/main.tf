@@ -7,6 +7,7 @@ resource "aws_ecr_repository" "ecr_repository" {
     scan_on_push = false
   }
 }
+
 # Create Lifecycle policy for ECR repository
 # Delete all build more than 3
 resource "aws_ecr_lifecycle_policy" "test_lifecycle_policy" {
