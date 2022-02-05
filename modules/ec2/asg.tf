@@ -6,6 +6,7 @@ resource "aws_launch_configuration" "asg_conf" {
   security_groups = [var.sg_app.id, var.sg_alb.id]        # Security Group for APP (open 80 port)
   key_name        = aws_key_pair.asg_ec2_key.key_name     # SSH key for connection to EC2 in Auto Scaling Group
   user_data       = file("./modules/ec2/shell/apache.sh") # install apache
+  # Give IAM
 
   lifecycle {
     create_before_destroy = true
