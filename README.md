@@ -1,4 +1,4 @@
-# <div align="center">Создание модульной инфраструктуры с помощью Terraform</div>
+# <div align="center">Creating network infrastructure on AWS Cloud using Terraform</div>
 
 ### Structure of modules:
 
