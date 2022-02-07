@@ -4,7 +4,7 @@ Creating AWS EC2 instance in 2 private subnets and bastion host with [security g
 
 ## Description of EC2:
 
-1. [Bastion Host](https://github.com/OlesYudin/demo_2/blob/main/modules/ec2/main.tf#:~:text=sloc)%20%201.59%20KB-,Raw,%7D,-%23%20resource%20%22aws_instance%22%20%22webserver "Bastion Host") in [Public Subnet](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/variables.tf#:~:text=%22-,172.31.2.0/24,-%22 "Public Subnet")
+1. [Bastion Host](https://github.com/OlesYudin/demo_2/blob/main/modules/ec2/main.tf#:~:text=Blame-,resource%20%22aws_instance%22%20%22bastion%22%20%7B,%7D,-%C2%A9%202022%20GitHub%2C%20Inc "Bastion Host") in [Public Subnet](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/variables.tf#:~:text=%22-,172.31.2.0/24,-%22 "Public Subnet")
 2. 2 EC2 instance in Private Subnet that created by [ASG](https://github.com/OlesYudin/demo_2/blob/main/modules/ec2/asg.tf "ASG")
 
 ### <div align="center">Create keys for SSH connection</div>
@@ -47,6 +47,5 @@ Creating AWS EC2 instance in 2 private subnets and bastion host with [security g
 | Count                  | 1 instance in 1 AZ, as default [**2**](<https://github.com/OlesYudin/demo_2/blob/main/modules/ec2/asg.tf#:~:text=count%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3D%20length(var.private_subnet_id)> "2") |
 | Key for SSH connection | Generate yourselve and write public key to [SSH-key](https://github.com/OlesYudin/demo_2/blob/main/modules/ec2/SSH-key/ "SSH-key")                                                                              |
 | Download packages      | [docker](https://www.docker.com/ "https://www.docker.com/")                                                                                                                                                     |
-
-| Subnet | Create in [VPC](https://github.com/OlesYudin/demo_2/blob/main/modules/ec2/asg.tf#:~:text=vpc_zone_identifier%20%20%3D%20%5Bvar.private_subnet_id%5Bcount.index%5D%5D "VPC") module |
-| Security Group | Open [22, 80](https://github.com/OlesYudin/demo_2/blob/main/modules/ec2/asg.tf#:~:text=security_groups%20%3D%20%5Bvar.sg_app.id%2C%20var.sg_alb.id%5D "22, 80") ports |
+| Subnet                 | Create in [VPC](https://github.com/OlesYudin/demo_2/blob/main/modules/ec2/asg.tf#:~:text=vpc_zone_identifier%20%20%3D%20%5Bvar.private_subnet_id%5Bcount.index%5D%5D "VPC") module                              |
+| Security Group         | Open [22, 80](https://github.com/OlesYudin/demo_2/blob/main/modules/ec2/asg.tf#:~:text=security_groups%20%3D%20%5Bvar.sg_app.id%2C%20var.sg_alb.id%5D "22, 80") ports                                           |
