@@ -40,7 +40,7 @@ Creating AWS EC2 instance in 2 private subnets and bastion host with [security g
 
 | Value                  | Default                                                                                                                                                                                                         |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Region                 | us-east-2                                                                                                                                                                                                       |
+| Region                 | us-east-2(a,b)                                                                                                                                                                                                  |
 | AMI                    | [Ubuntu 16.04 Server](https://github.com/OlesYudin/demo_2/blob/main/modules/ec2/data.tf "Ubuntu 16.04 Server")                                                                                                  |
 | Instance type          | t2.micro                                                                                                                                                                                                        |
 | Environment            | [Developer](https://github.com/OlesYudin/demo_2/blob/main/modules/ec2/variables.tf#:~:text=variable%20%22env%22%20%7B,%7D "Developer")                                                                          |
