@@ -1,24 +1,25 @@
-# <div align="center">Создание сети</div>
+# <div align="center">Create network</div>
 
-### Переменные:
+### Variables:
 
-- `env` - окружение проекта
-- `cidr_vpc` - CIDR блок для VPC
-- `public_subnet` - CIDR блоки для публичных подсетей
+- `env` - environment of project
+- `cidr_vpc` - CIDR block for VPC
+- `public_subnet` - CIDR-blocks for publick subnet
+- `private_subnet` - CIDR-blocks for private subnet
 
-### Структура файлов:
+### Structure of files:
 
-- [`main.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/main.tf "main.tf`") - создание VPC, Subnets (Private and Public), association to Subnets
-- [`alb.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/alb.tf "alb.tf") - создание Application Load Balancer, для распределения трафика между EC2 instance
-- [`asg.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/asg.tf "asg.tf") - создание ASG, для конфигурации EC2 instance и корректной работы NAT
-- [`variables.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/variables.tf "variables.tf") - переменные для работы модуля VPC
-- [`data.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/data.tf "data.tf") - динамических поиск ресурсов
-- [`outputs.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/outputs.tf "outputs.tf") - выходные данные модуля VPC
+- [`main.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/main.tf "main.tf`") - create VPC, Subnets (Private and Public), association with Subnets
+- [`alb.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/alb.tf "alb.tf") - create Application Load Balancer to distribute traffic between EC2 instances
+- [`asg.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/asg.tf "asg.tf") - create ASG, for EC2 instance configuration and correct NAT working
+- [`variables.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/variables.tf "variables.tf") - variables for VPC module
+- [`data.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/data.tf "data.tf") - dynamic search resources
+- [`outputs.tf`](https://github.com/OlesYudin/demo_2/blob/main/modules/vpc/outputs.tf "outputs.tf") - outputs data for VPC module
 
-### Что необходимо создать:
+### What we should to do:
 
-1. `aws_vpc` - Создает Virtual Private Cloud (VPC)
-2. `aws_subnet` - Создает подсети в VPC
+1. `aws_vpc` - Create Virtual Private Cloud (VPC)
+2. `aws_subnet` - Create subnets in VPC
 3. `aws_internet_gateway` - Нужен для того, что бы в VPC был интернет
 4. `aws_route_table` - Создает таблицу маршрутизации от VPC до Internet Gateway (IGW)
 5. `aws_route_table_association` - Необходим для явного представления таблицы маршрутизации с подсетью
@@ -30,7 +31,7 @@
 11. `aws_lb_target_group_attachment` - Предоставляет возможность регистрировать EC2 instance и контейнеры в целевой группе ALB
 12. `ASG`
 
-### <div align="center">Схема сети</div>
+### <div align="center">Networking scheme</div>
 
 <p align="center">
   <img src="https://github.com/OlesYudin/demo_2/blob/main/images/Network%20infrastructure.png" alt="Scheme of Network in AWS"/>
