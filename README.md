@@ -1,4 +1,4 @@
-# <div align="center">Creating network infrastructure on AWS Cloud using Terraform</div>
+# <div align="center">Creating network infrastructure on AWS Cloud Provider using Terraform</div>
 
 ### Structure of modules:
 
