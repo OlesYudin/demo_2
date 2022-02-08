@@ -31,3 +31,6 @@ override.tf.json
 
 # Ignore public ssh-keys
 *.pub
+
+# Ignore future
+Future.txt
