@@ -7,7 +7,7 @@ resource "aws_security_group" "sg_app" {
   # Inbound rules for 22ports
   # Open 22 to my IP and my VPC
   dynamic "ingress" {
-    for_each = var.sg_port_cidr
+    for_each = var.sg_port_cidr_app
     content {
       from_port   = ingress.key
       to_port     = ingress.key

@@ -1,21 +1,20 @@
+# Environment for SG group
 variable "env" {
-  default = "dev"
+  description = "Environment"
+  type        = string
 }
 # Inbound/Outbound rules of Security group thats open port to CIDR like key --> value
-variable "sg_port_cidr" {
+variable "sg_port_cidr_app" {
   description = "Allowed EC2 ports"
   type        = map(any)
-  default = {
-    "22" = ["195.88.72.206/32", "172.31.0.0/16"]
-    # "80"   = ["0.0.0.0/0"]
-    # "8080" = ["195.88.72.206/32", "172.31.0.0/16"]
-  }
 }
 # Default inbound CIDR block
 variable "default_cidr" {
-  type    = string
-  default = "0.0.0.0/0"
+  description = "Default CIDR block for IN/OUT traffic"
+  type        = string
 }
+
+# Variables from another modules
 # VPC id
 variable "vpc_id" { type = any }
 # Port for App

@@ -44,7 +44,7 @@ resource "aws_route_table" "publicroute" {
   vpc_id = aws_vpc.vpc.id
 
   route {
-    cidr_block = "0.0.0.0/0"                 # Allow all to IN/OUT traffic
+    cidr_block = var.default_cidr            # Allow all to IN/OUT traffic
     gateway_id = aws_internet_gateway.igw.id # Attach to IGW and Internet will work
   }
 
@@ -79,7 +79,7 @@ resource "aws_route_table" "privateroute" {
   vpc_id = aws_vpc.vpc.id
 
   route {
-    cidr_block     = "0.0.0.0/0"            # Allow all to IN/OUT traffic
+    cidr_block     = var.default_cidr       # Allow all to IN/OUT traffic
     nat_gateway_id = aws_nat_gateway.nat.id # Attach to NAT
   }
 

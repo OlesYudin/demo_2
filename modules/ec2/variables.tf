@@ -10,10 +10,10 @@ variable "default_region" {
 variable "instance_type" {
   default = "t2.micro"
 }
+
+# Variables from another modules
 # CIDR public subnet
-variable "public_subnet" {
-  type = list(any)
-}
+variable "public_subnet" { type = list(any) }
 # Private subnet ID
 variable "private_subnet_id" { type = list(any) }
 # ALB Target Group
