@@ -4,9 +4,8 @@ resource "aws_security_group" "sg_app" {
   description = "Security group for SSH connection to EC2 instance"
   vpc_id      = var.vpc_id.id
 
-  # Inbound rules for 22,80,8080 ports
+  # Inbound rules for 22ports
   # Open 22 to my IP and my VPC
-  # Open 80, 8080 to all in the Internet
   dynamic "ingress" {
     for_each = var.sg_port_cidr
     content {
