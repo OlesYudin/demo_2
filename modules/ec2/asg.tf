@@ -27,8 +27,8 @@ resource "aws_autoscaling_group" "asg" {
   target_group_arns    = [var.alb_target.arn]
 
   min_size         = 1 # Min size of creating EC2
-  max_size         = 1 # Max size of creating EC2
-  desired_capacity = 1 # How many instance ASG predict
+  max_size         = 2 # Max size of creating EC2
+  desired_capacity = 1 # How many instance ASG predict right now
 
   health_check_grace_period = 120
   health_check_type         = "ELB" # Type of helth check. Can be 'EC2' or 'ELB'
