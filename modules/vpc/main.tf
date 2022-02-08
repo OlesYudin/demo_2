@@ -21,7 +21,7 @@ resource "aws_subnet" "public_subnet" {
   map_public_ip_on_launch = true                                                     # Give public IP
 
   tags = {
-    Name              = "Subnet-${var.env}-${count.index + 1}"
+    Name              = "Public-Subnet-${var.env}-${count.index + 1}"
     Availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
   }
 }
@@ -68,7 +68,7 @@ resource "aws_subnet" "private_subnet" {
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
   tags = {
-    Name        = "Private-${var.env}-${count.index + 1}]"
+    Name        = "Private-Subnet-${var.env}-${count.index + 1}"
     Environment = "${var.env}"
     AZ          = "${data.aws_availability_zones.available.names[count.index]}"
   }
@@ -94,6 +94,3 @@ resource "aws_route_table_association" "privaterouteAssociation" {
   subnet_id      = aws_subnet.private_subnet[count.index].id
   route_table_id = aws_route_table.privateroute.id
 }
-
-# Add NAT to nat.tf
-# Add ASG
