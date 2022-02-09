@@ -12,19 +12,12 @@ module "vpc" {
   source = "./modules/vpc"
 
   # Variables for VPC 
-  env      = var.env
-  app_port = 80
-  # Network vars
-  cidr_vpc = "172.31.0.0/16"
-  public_subnet = [
-    "172.31.1.0/24",
-    "172.31.2.0/24"
-  ]
-  private_subnet = [
-    "172.31.11.0/24",
-    "172.31.12.0/24"
-  ]
-  default_cidr = var.default_cidr
+  env            = var.env
+  app_port       = var.app_port
+  cidr_vpc       = var.cidr_vpc
+  public_subnet  = var.public_subnet
+  private_subnet = var.private_subnet
+  default_cidr   = var.default_cidr
 
   # Data from another modules
   sg_alb = module.sg.sg_alb # Security Group for ALB
@@ -37,11 +30,9 @@ module "sg" {
   source = "./modules/Security-group"
 
   # Default variables for Security Group
-  env = var.env
-  sg_port_cidr_app = {
-    "22" = ["195.88.72.206/32", "172.31.0.0/16"]
-  }
-  default_cidr = var.default_cidr
+  env              = var.env
+  sg_port_cidr_app = var.sg_port_cidr_app
+  default_cidr     = var.default_cidr
 
   # Data from another modules
   vpc_id   = module.vpc.vpc_id
@@ -57,7 +48,7 @@ module "ec2" {
   # Default variables for EC2 module
   env            = var.env
   default_region = var.region
-  instance_type  = "t2.micro"
+  instance_type  = var.instance_type
 
   # Data from another modules
   public_subnet     = module.vpc.public_subnet     # Take information about Public Subnet
