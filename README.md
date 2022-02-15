@@ -18,3 +18,34 @@
 <p align="center">
   <img src="https://github.com/OlesYudin/demo_2/blob/main/images/Network%20infrastructure%20DEMO_2.png" alt="Scheme of creation VPC in AWS"/>
 </p>
+
+### Secure SSH connection to instance in private subnets
+
+If you need to connect to ec2 with only private IP-address, you can use [jump host](https://wiki.gentoo.org/wiki/SSH_jump_host "jump host"). Now, you dont need to push private keys to bastion host, all you need is a configure config file in your local machine in path for example: `~/.ssh/config`.
+
+**In this file you should to configure destination to the instances. Example:**
+
+```
+Host bastion
+HostName public_ip_of_bastion_host
+User username
+IdentityFile /home/username/.ssh/bastion_private_key
+
+Host app
+HostName private_ip_of_instance
+User username
+IdentityFile /home/username/.ssh/private_key_for_ec2_instance
+ProxyJump bastion
+```
+
+`Host` - название по которому можно подключатся к хосту
+
+`HostName` - IP-адресс машины к которой нужно подключится
+
+`User` - пользователь о которого идет подключение
+
+`IdentityFile` - путь к приватному ключу
+
+`ProxyJump` - через какой сервер осуществляется подключение
+
+Now, if we use command `ssh app` we will connect to instance in private subnets, because in config file we have description of destination point.
