@@ -5,6 +5,8 @@
 *.tfstate
 *.tfstate.*
 .terraform.lock.hcl
+# Ignore global variables
+*.auto.tfvars
 
 # Ignore tfvars
 *.tfvars
