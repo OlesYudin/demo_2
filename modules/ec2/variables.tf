@@ -1,14 +1,17 @@
 # Environment
 variable "env" {
-  default = "dev"
+  description = "Default environment"
+  type        = string
 }
 # Region
 variable "default_region" {
-  default = "us-east-2"
+  description = "Default region for ec2"
+  type        = string
 }
 # Instance type
 variable "instance_type" {
-  default = "t2.micro"
+  description = "Default instance type for ec2"
+  type        = string
 }
 
 # Variables from another modules
